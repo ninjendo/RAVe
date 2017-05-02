@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: RAVe Lead Funneling System
+Implementation-Version: 1.0.0-SNAPSHOT
+Built-By: jett
+Implementation-Vendor-Id: com.ninjendo.rave
+Build-Jdk: 1.8.0_112
+Implementation-URL: http://projects.spring.io/spring-boot/rave-app/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
