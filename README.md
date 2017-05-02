@@ -7,6 +7,7 @@ Technologies:
 - JAVA 
 - Springboot 1.4.3
 - Spring REST
+- Swagger UI
 - Zillow WS-API
 - Hazelcast 3.6.7
 - Google API
