@@ -13,17 +13,8 @@ import com.hazelcast.config.Config;
  */
 @SpringBootApplication
 @EnableCaching
-@ComponentScan("com.ninjendo.rave")
-//@EnableAutoConfiguration(exclude = {EmbeddedServletContainerAutoConfiguration.class, WebMvcAutoConfiguration.class})
 public class CacheServerApplication 
 {
-//    public static void main(String[] args) {
-//        new SpringApplicationBuilder()
-//                .profiles("member")
-//                .sources(CacheServerApplication.class)
-//                .run(args);
-//    }
-//    
     
     public static void main(String[] args) {
         SpringApplication.run(CacheServerApplication.class, args);
@@ -35,7 +26,6 @@ public class CacheServerApplication
         Config config = new Config();
         config.setInstanceName("hazelcast-cache");
 
- 
         return config;
     }
 }
