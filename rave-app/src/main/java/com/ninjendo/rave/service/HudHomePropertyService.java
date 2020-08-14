@@ -82,7 +82,7 @@ public class HudHomePropertyService {
 		return hudLeadMap;
     }
     
-    @Scheduled(cron="* * * * * *")
+    @Scheduled(cron="0 0 10 ? * MON-FRI *")
 	public void downloadGaHudProperties()
 	{
 		downloadHudProperties(this.config.getDefaultSearchUrl());
