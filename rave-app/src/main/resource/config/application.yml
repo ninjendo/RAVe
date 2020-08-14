@@ -1,13 +1,25 @@
 server:
-  contextPath: /rave
+  servlet:
+    contextPath: /rave
   port: 8081
 
 management:
-  port: 9001
+  server:
+    port: 9001
 
 upload:
   uploadPath: C:/hud/
   hudNetBidFile: "HUD Net Bid - Sheet1.csv"
+
+  
+crawler:
+  userAgent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+  googleSearchUrl: "https://www.google.com/#q="
+  queryResultLimit: "&num=20"
+  hudSearchResultInExcelUrl: "http://www.hudhomestore.com/pages/ListExportToExcel.aspx?buyerType=Investor&sState=GA"
+  zillowUrlPattern: http[s]{0,1}://www\\.zillow.+_zpid
+  redfinUrlPattern:
+
 
 sfdata:
   hostUrl: https://data.sfgov.org
@@ -21,18 +33,19 @@ redis:
   password:
 
 database:
-  driverClass: com.mysql.jdbc.Driver
+#  driverClass: com.mysql.jdbc.Driver
   hostUrl: jettolano.com
-  url: jdbc:mysql://jettolano.com:3306/artotoyc_leadmanager
-  user: artotoyc_jettlm
-  password: s4m4dh1s
-  properties:
-    hibernate.dialect: org.hibernate.dialect.H2Dialect
-    hibernate.hbm2ddl.auto: create
-    hibernate.jdbc.batch_size: 50
+#  url: jdbc:mysql://jettolano.com:3306/artotoyc_leadmanager
+#  user: artotoyc_jettlm
+#  password: s4m4dh1s
+#  properties:
+#    hibernate.dialect: org.hibernate.dialect.H2Dialect
+#    hibernate.hbm2ddl.auto: create
+#    hibernate.jdbc.batch_size: 50
 
 logging:
-  level: INFO
+  level: 
+    root: DEBUG
   
 zillow:
   webserviceId: X1-ZWz19xo4k5glcb_6le3g
@@ -54,14 +67,6 @@ google:
   responseType: code
   tokenType: Bearer
   approvalPrompt: auto
-  
-crawler:
-  userAgent: Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
-  googleSearchUrl: "https://www.google.com/#q="
-  queryResultLimit: "&num=20"
-  hudSearchResultInExcelUrl: "http://www.hudhomestore.com/pages/ListExportToExcel.aspx?buyerType=Investor&sState=GA"
-  zillowUrlPattern: http[s]{0,1}://www\\.zillow.+_zpid
-  redfinUrlPattern:
 
 hud:
   defaultSearchUrl: "http://www.hudhomestore.com/pages/ListExportToExcel.aspx?sState=GA"

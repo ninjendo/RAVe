@@ -1,6 +1,8 @@
 package com.ninjendo.rave.service;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -25,11 +27,12 @@ import com.ninjendo.rave.model.State;
 import com.ninjendo.rave.parser.CsvParser;
 
 @Service
-public class PropertyService {
+public class HudHomePropertyService {
 	
 
-	final static Logger logger = LoggerFactory.getLogger(PropertyService.class);
+	final static Logger logger = LoggerFactory.getLogger(HudHomePropertyService.class);
 	
+	@Autowired
 	HudConfig config;
     
     @Autowired
@@ -38,8 +41,11 @@ public class PropertyService {
     @Autowired
 	private LeadCrawlerService crawlerService;
     
+    @Autowired
+    private GoogleAppService googleService;    
+    
 	@Autowired
-	public PropertyService(HudConfig config) {
+	public HudHomePropertyService(HudConfig config) {
 		this.config = config;
 	}
 	
@@ -76,7 +82,7 @@ public class PropertyService {
 		return hudLeadMap;
     }
     
-	@Scheduled(cron="0 15 10,5 * * MON-FRI")
+    @Scheduled(cron="0 0 10 ? * MON-FRI")
 	public void downloadGaHudProperties()
 	{
 		downloadHudProperties(this.config.getDefaultSearchUrl());
@@ -133,4 +139,40 @@ public class PropertyService {
 			e.printStackTrace();
 		}
 	}
+	public void processAcceptedBids()
+	{
+		String fileId = "18eBI9jhzFA2rKJ4nNhoD_K_nwhnzGliQA4__xj2dwYk";
+		try
+		{
+			ByteArrayOutputStream out = (ByteArrayOutputStream) googleService.downloadBidAcceptanceSheet(fileId);
+			Map<String, PropertyLead> hudNetBidResults = parseHudNetBidResult(new ByteArrayInputStream(out.toByteArray()));
+			
+			for (Map.Entry<String,PropertyLead> hudNetBid : hudNetBidResults.entrySet()) {
+				
+				PropertyLead lead = cache.getByHudCaseNumber(hudNetBid.getKey());
+				
+				if (lead != null) {
+					PropertyLead hudNetProperty = hudNetBid.getValue();
+					
+					if (hudNetProperty.getCounteredNetToHud() != null){
+						lead.setCounteredNetToHud(hudNetProperty.getCounteredNetToHud());
+						lead.setBidSubmitDate(hudNetProperty.getBidSubmitDate());
+						lead.setBidAcceptanceDate(hudNetProperty.getBidAcceptanceDate());
+						logger.info("Net to HUD: " + lead.getFhaCaseNumber() + " => " + lead.getCounteredNetToHud());
+						
+						cache.save(lead);
+					}
+					else
+					{
+						logger.error("Net to HUD is missing!!");
+						break;
+					}
+				}				
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 }

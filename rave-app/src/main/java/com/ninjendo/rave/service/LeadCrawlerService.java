@@ -20,6 +20,7 @@ import com.ninjendo.rave.model.PropertyLead;
 @Service
 public class LeadCrawlerService {
 
+	@Autowired
 	private final CrawlerConfig config;
 	
 
@@ -31,7 +32,7 @@ public class LeadCrawlerService {
 	
 	final static Logger logger = LoggerFactory.getLogger(LeadCrawlerService.class);
 	
-    @Autowired
+    
     public LeadCrawlerService(CrawlerConfig config) {
         this.config = config;
         logger.info("this.config =" + this.config);   

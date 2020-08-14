@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ninjendo.rave.model.PropertyLead;
-import com.ninjendo.rave.service.PropertyService;
+import com.ninjendo.rave.service.HudHomePropertyService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -24,7 +24,7 @@ public class PropertyController {
     private static final Logger logger = LoggerFactory.getLogger(PropertyController.class);
 
     @Autowired
-    private PropertyService service;
+    private HudHomePropertyService service;
     
     @GetMapping(value="/all")
     @ApiOperation(value = "Get properties.", notes = "List of properties.", response = List.class)

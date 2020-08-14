@@ -18,7 +18,7 @@ import com.ninjendo.rave.model.LeadType;
 import com.ninjendo.rave.model.PropertyLead;
 import com.ninjendo.rave.model.State;
 import com.ninjendo.rave.parser.CsvParser;
-import com.ninjendo.rave.service.HudSearchService;
+import com.ninjendo.rave.service.HudHomePropertyService;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -31,7 +31,7 @@ public class HudController {
     private static final Logger LOGGER = LoggerFactory.getLogger(HudController.class);
 
     @Autowired
-    private HudSearchService hudService;
+    private HudHomePropertyService hudService;
     
     private String uploadDirectory;
     private String hudNetBidFile;
@@ -46,7 +46,7 @@ public class HudController {
     public void downloadHud(
     		@ApiParam(name = "state", value = "State Code", required = true) @RequestParam("state") State state) throws MissingDataException
     {
-    	hudService.downloadHudProperties(state);
+    	hudService.downloadHudProperties(state, null);
     }
     
     @RequestMapping(method=RequestMethod.POST, value="/bids/process")

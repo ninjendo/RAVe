@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.ninjendo.rave.exception.MissingDataException;
 import com.ninjendo.rave.gen.zillow.SimpleProperty;
 import com.ninjendo.rave.util.FilterAttributes;
+import com.ninjendo.rave.util.JsonUtil;
 
 
 public class PropertyLead  implements Comparable<PropertyLead>, Serializable {
@@ -863,5 +864,9 @@ public class PropertyLead  implements Comparable<PropertyLead>, Serializable {
 			}
 		}
     	return newStatus;
+    }
+    
+    public String toJson() {
+    	return JsonUtil.toJson(this);
     }
 }

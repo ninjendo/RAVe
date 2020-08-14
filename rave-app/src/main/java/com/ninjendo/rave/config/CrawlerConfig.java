@@ -3,7 +3,6 @@ package com.ninjendo.rave.config;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,6 +27,14 @@ public class CrawlerConfig {
 	private String zillowUrlPattern;
 	private String redfinUrlPattern;
 	
+	private String hudSearchResultInExcelUrl;
+	
+	public String getHudSearchResultInExcelUrl() {
+		return hudSearchResultInExcelUrl;
+	}
+	public void setHudSearchResultInExcelUrl(String hudSearchResultInExcelUrl) {
+		this.hudSearchResultInExcelUrl = hudSearchResultInExcelUrl;
+	}
 	public String getUserAgent() {
 		return userAgent;
 	}
