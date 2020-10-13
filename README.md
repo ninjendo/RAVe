@@ -24,6 +24,7 @@ RAVe is a system that assist RE investors on tracking high-equity properties in 
 
 ## How to Run:
 1) install application using maven
-2) Run the cache server first.  Open rave-cache and run com.ninjendo.rave.cache.CacheServerApplication.java
-3) Run the main application: com.ninjendo.rave.RaveApplication.java
+2) Make sure that your IDE has the resource and src folder set correctly
+3) Run the cache server first.  Open rave-cache and run com.ninjendo.rave.cache.CacheServerApplication.java
+4) Run the main application: com.ninjendo.rave.RaveApplication.java
 - the main app will connect to the cache server and run the scheduler. The scheduler (com.ninjendo.rave.service.ZillowService@downloadHudLeads) will download the list of properties from hudhomestore.com, retrieve the property details from zillow.com, then save it in the cache.  
