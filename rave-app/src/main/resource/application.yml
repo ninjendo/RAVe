@@ -55,10 +55,10 @@ zillow:
 google:
   gsheetApiKey: 
   gsheetClientId: 
-  gsheetClientSecret: 82gGXlN-7JbSy6z76y1eAykb
-  gmailApiKey: AIzaSyA9EXht26v_uwNnVHR-ROWe7fN-Vo3sac0
-  gmailClientId: 482674941648-61s2ubettd5553qrs7tnp2tujsfmpg1h.apps.googleusercontent.com
-  gmailClientSecret: RUA9A3Iia6v6GaMxDAqn3EDF
+  gsheetClientSecret: 
+  gmailApiKey: 
+  gmailClientId: 
+  gmailClientSecret: 
   responseType: code
   tokenType: Bearer
   approvalPrompt: auto
