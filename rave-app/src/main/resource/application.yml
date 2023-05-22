@@ -19,7 +19,7 @@ crawler:
 sfdata:
   hostUrl: https://data.sfgov.org
   contextPath: /resource/rqzj-sfat.json
-  appToken: mHx7jwFwd21SATHQoozKOfefE
+  appToken: <TOKEN>
   updateInterval: 1 # hours
 
 redis:
@@ -31,8 +31,8 @@ database:
 #  driverClass: com.mysql.jdbc.Driver
   hostUrl: jettolano.com
 #  url: jdbc:mysql://jettolano.com:3306/artotoyc_leadmanager
-#  user: artotoyc_jettlm
-#  password: s4m4dh1s
+#  user: 
+#  password: 
 #  properties:
 #    hibernate.dialect: org.hibernate.dialect.H2Dialect
 #    hibernate.hbm2ddl.auto: create
@@ -43,8 +43,8 @@ logging:
     root: DEBUG
   
 zillow:
-  webserviceId: X1-ZWz19xo4k5glcb_6le3g
-  webserviceIdAlternate: X1-ZWz1f75k5t5q8b_76gmj
+  webserviceid :
+  webserviceIdAlternate: 
   compsCount: 10
   searchResultsUrl: http://www.zillow.com/webservice/GetSearchResults.htm
   deepSearchResultsUrl: http://www.zillow.com/webservice/GetDeepSearchResults.htm
@@ -53,8 +53,8 @@ zillow:
   deepCompsUrl: http://www.zillow.com/webservice/GetDeepComps.htm
 
 google:
-  gsheetApiKey: AIzaSyDzxShRJiXxBqpxb6sX_N5ff4_aZgfu8ug
-  gsheetClientId: 482674941648-s3eh3pu7e7ccuqr35a5fa9tju0idpq0t.apps.googleusercontent.com
+  gsheetApiKey: 
+  gsheetClientId: 
   gsheetClientSecret: 82gGXlN-7JbSy6z76y1eAykb
   gmailApiKey: AIzaSyA9EXht26v_uwNnVHR-ROWe7fN-Vo3sac0
   gmailClientId: 482674941648-61s2ubettd5553qrs7tnp2tujsfmpg1h.apps.googleusercontent.com
